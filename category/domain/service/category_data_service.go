@@ -11,6 +11,9 @@ type ICategoryDataService interface {
 	UpdateCategory(*model.Category) error
 	FindCategoryByID(int64) (*model.Category, error)
 	FindAllCategory() ([]model.Category, error)
+	FindCategoryByName(string) (*model.Category, error)
+	FindCategoryByLevel(uint32) ([]model.Category, error)
+	FindCategoryByParent(int64) ([]model.Category, error)
 }
 
 // 创建
@@ -45,4 +48,16 @@ func (u *CategoryDataService) FindCategoryByID(categoryID int64) (*model.Categor
 // 查找
 func (u *CategoryDataService) FindAllCategory() ([]model.Category, error) {
 	return u.CategoryRepository.FindAll()
+}
+
+func (u *CategoryDataService) FindCategoryByName(categoryName string) (*model.Category, error) {
+	return u.CategoryRepository.FindCategoryByName(categoryName)
+}
+
+func (u *CategoryDataService) FindCategoryByLevel(level uint32) ([]model.Category, error) {
+	return u.CategoryRepository.FindCategoryByLevel(level)
+}
+
+func (u *CategoryDataService) FindCategoryByParent(parent int64) ([]model.Category, error) {
+	return u.CategoryRepository.FindCategoryByParent(parent)
 }
