@@ -43,7 +43,7 @@ func (h *Cart) Decr(ctx context.Context, request *cart.Item, response *cart.Resp
 	if err := h.CartDataService.DecrNum(request.Id, request.ChangeNum); err != nil {
 		return err
 	}
-	response.Meg = "购物程减少成功"
+	response.Meg = "购物车减少成功"
 	return nil
 }
 

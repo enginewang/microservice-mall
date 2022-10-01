@@ -11,7 +11,6 @@ type ICartDataService interface {
 	UpdateCart(*model.Cart) error
 	FindCartByID(int64) (*model.Cart, error)
 	FindAllCart(int64) ([]model.Cart, error)
-
 	CleanCart(int64) error
 	DecrNum(int64, int64) error
 	IncrNum(int64, int64) error
